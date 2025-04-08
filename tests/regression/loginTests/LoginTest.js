@@ -1,9 +1,11 @@
 const LoginPage = require('../../../nightwatch/page-objects/loginPage/LoginPage.js');
 const utility = require('../../../nightwatch/helpers/utilities.js');
+const HeaderPage = require('../../../nightwatch/page-objects/headerPage/headerPage.js');
 
 const { navigateToApp, loginValidations } = utility;
 
 const loginPage = new LoginPage();
+const headerPage = new HeaderPage()
 
 describe('Given the user visits the Sauce Demo site,', function() {
   this.tags = ['login', 'regression'];
@@ -19,7 +21,7 @@ describe('Given the user visits the Sauce Demo site,', function() {
   it('User can login with valid credentials', () => {
     loginPage.login(browser);
 
-    browser.expect.element('div.app_logo') //comes from the home page
+    browser.expect.element(headerPage.headerLogo) //comes from the home page
       .to.be.present.and.visible;
   });
 

@@ -5,8 +5,8 @@ const { navigateToApp } = utility;
 
 const loginPage = new LoginPage();
 
-describe('Given the user visits the Sauce Demo site,', function() {
-  this.tags = ['login', 'sanity'];
+describe('Given the user visits the Sauce Demo site,', () => {
+  this.tags = ['login', 'loginSanity', 'sanity'];
 
   beforeEach(() => {
     navigateToApp(browser);

@@ -1,15 +1,14 @@
-const { ElementLocator } = require('nightwatch');
-const utility = require('../../../nightwatch/helpers/utilities.js');
 const HeaderPage = require('../../../nightwatch/page-objects/headerPage/headerPage.js');
 const LoginPage = require('../../../nightwatch/page-objects/loginPage/LoginPage.js');
+const utility = require('../../../nightwatch/helpers/utilities.js');
 
-const { navigateToApp, loginValidations } = utility;
+const { navigateToApp } = utility;
 
 const headerPage = new HeaderPage();
 const loginPage = new LoginPage();
 
-describe('Given the user logs into the Sauce Demo site,', function() {
-  this.tags = ['headerSanity', 'sanity'];
+describe('Given the user logs into the Sauce Demo site,', () => {
+  this.tags = ['header', 'headerSanity', 'sanity'];
   
   beforeEach(() => {
     navigateToApp(browser);

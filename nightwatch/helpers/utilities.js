@@ -56,6 +56,16 @@ function randomNumber (min, max) {
   return Math.floor((Math.random() * (max - min) + min));
 }
 
+/**
+ * @description Scrolls the element into view
+ * @param {Object} browser - inserts the Nightwatch Browser Object 
+ * @param {String} element - locator used to identify the element
+ */
+function scrollElementIntoView(browser, element) {
+  return browser.execute(function(selector) {
+    document.querySelector(selector).scrollIntoView({behavior: 'smooth', block: 'center'});
+  }, [element]);
+}
 
 /**
  * @description Wait for element to exist and be visible
@@ -130,6 +140,7 @@ module.exports = {
   getBaseUrl,
   navigateToApp,
   randomNumber,
+  scrollElementIntoView,
   clickTheElementButton,
   clickTheElementButtonByIndex,
   getElementText,

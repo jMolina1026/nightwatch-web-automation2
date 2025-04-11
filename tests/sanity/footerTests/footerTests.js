@@ -2,7 +2,7 @@ const LoginPage = require('../../../nightwatch/page-objects/loginPage/LoginPage.
 const FooterPage = require('../../../nightwatch/page-objects/footerPage/footerPage.js');
 const utility = require('../../../nightwatch/helpers/utilities.js');
 
-const { navigateToApp, waitForElementAppearance, scrollElementIntoView } = utility;
+const { navigateToApp, scrollElementIntoView } = utility;
 
 const footerPage = new FooterPage()
 const loginPage = new LoginPage();

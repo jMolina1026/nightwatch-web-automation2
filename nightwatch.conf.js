@@ -113,7 +113,13 @@ module.exports = {
           w3c: true,
           args: process.env.HEADLESS === 'true' ? 
             ['--headless=new', '--window-size=1920,1080'] : 
-            ['--start-maximized']
+            ['--start-maximized'],
+          prefs: {
+            'credentials_enable_service': false,
+            'profile.password_manager_enabled': false,
+            'profile.password_manager_allow_show_passwords': false,
+            'profile.password_manager_leak_detection': false
+          }
         }
       },
 

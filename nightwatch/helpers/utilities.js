@@ -56,6 +56,16 @@ function randomNumber (min, max) {
   return Math.floor((Math.random() * (max - min) + min));
 }
 
+/**
+ * @description Scrolls the element into view
+ * @param {Object} browser - inserts the Nightwatch Browser Object 
+ * @param {String} element - locator used to identify the element
+ */
+function scrollElementIntoView(browser, element) {
+  return browser.execute(function(selector) {
+    document.querySelector(selector).scrollIntoView({behavior: 'smooth', block: 'center'});
+  }, [element]);
+}
 
 /**
  * @description Wait for element to exist and be visible
@@ -119,6 +129,38 @@ function getElementText(browser, element, index = 0) {
     })
 }
 
+/**
+ * @description Grab all available handles to use for switching between 
+ * @param {Object} browser - inserts the Nightwatch Browser Object
+ * @returns all session tab handles
+ */
+function getAllTabHandles(browser) {
+  return new Promise((resolve) => {
+    browser.window.getAllHandles((result) => {
+      resolve(result.value);
+    });
+  });
+}
+
+/**
+ * @description Switches between all tabs in current browser session
+ * @param {Object} browser - inserts the Nightwatch Browser Object
+ * @param {String} handle - tab handle to switch to 
+ * @returns 
+ */
+function switchTabs(browser, handle) {
+  return browser.window.switchTo(handle);
+}
+
+/**
+ * @description Closes the currently focused tab
+ * @param {Object} browser - inserts the Nightwatch Browser Object
+ * @returns closed tab
+ */
+function closeCurrentTab(browser) {
+  return browser.window.close();
+}
+
 
 
 // To make any method or variable private, just remove it from the list of exported items
@@ -130,8 +172,12 @@ module.exports = {
   getBaseUrl,
   navigateToApp,
   randomNumber,
+  scrollElementIntoView,
   clickTheElementButton,
   clickTheElementButtonByIndex,
   getElementText,
-  waitForElementAppearance
+  waitForElementAppearance,
+  getAllTabHandles,
+  switchTabs,
+  closeCurrentTab
 }

@@ -1,9 +1,6 @@
 const utility = require('../../helpers/utilities.js');
 
-// import * as utility from '../../helpers/utilities.js'
-// import * as commonSelectors from '../helpers/CommonSelectors.js'
-// const { commonHeaderElements, commonLoginPageElements } = commonSelectors
-const { navigateToApp, clickTheElementButton, getElementText } = utility;
+const { clickTheElementButton, getElementText } = utility;
 
 class LoginPage {
   constructor () {
@@ -30,7 +27,7 @@ class LoginPage {
   enterUsername (browser, username = this.username) {
     return browser
       .waitForElementVisible(this.usernameField)
-      .element().find(this.usernameField)
+      .element.find(this.usernameField)
       .sendKeys(username);
   }
 
@@ -41,7 +38,7 @@ class LoginPage {
   enterPassword (browser, password = this.password) {
     return browser
       .waitForElementVisible(this.passwordField)
-      .element().find(this.passwordField)
+      .element.find(this.passwordField)
       .sendKeys(password);
   }
 

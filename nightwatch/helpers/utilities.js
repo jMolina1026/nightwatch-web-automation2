@@ -161,7 +161,17 @@ function closeCurrentTab(browser) {
   return browser.window.close();
 }
 
-
+/**
+ * @description Obtains an array of WebElements and selects one
+ * @param {Object} browser - inserts the Nightwatch Browser Object
+ * @param {String} element - locator used to identify the element
+ * @param {Number} index - position of element in list
+ * @returns a single webElement
+ */
+function getElementFromList(browser, element = '', index = 0) {
+  return browser.element.findAll(element)
+    .nth(index);
+}
 
 // To make any method or variable private, just remove it from the list of exported items
 module.exports = {
@@ -179,5 +189,6 @@ module.exports = {
   waitForElementAppearance,
   getAllTabHandles,
   switchTabs,
-  closeCurrentTab
+  closeCurrentTab,
+  getElementFromList
 }

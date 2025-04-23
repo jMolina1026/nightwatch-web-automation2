@@ -36,9 +36,17 @@ const addToCartBtns = {
   redShirtATC: 'Add to cart'
 }
 
+const filterOptions = {
+  az: 'Name (A to Z)',
+  za: 'Name (Z to A)',
+  lohi: 'Price (low to high)',
+  hilo: 'Price (high to low)'
+}
+
 module.exports = {
   names,
   descriptions,
   prices,
-  addToCartBtns
+  addToCartBtns,
+  filterOptions
 }

@@ -1,6 +1,6 @@
 const utility = require('../../helpers/utilities.js');
 
-const { clickTheElementButton, getElementFromList } = utility;
+const { clickTheElementButton, getElementFromList, clickTheElementButtonByIndex } = utility;
 
 class ProductsPage {
   constructor() {
@@ -13,6 +13,7 @@ class ProductsPage {
     this.productAddToCart = 'button.btn_primary';
     this.productRemoveFromCart = 'button.btn_secondary';
     this.productImage = 'img.inventory_item_img';
+    this.productShoppingCartBadge = 'span.shopping_cart_badge';
 
     this.productFilters = 'select.product_sort_container > option';
     this.productFilterActive = 'span.active_option';
@@ -44,6 +45,14 @@ class ProductsPage {
    */
   clickTheProductButton(browser, element) {
     return clickTheElementButton(browser, element);
+  }
+
+  clickTheATCButtons(browser, element, index = 0) {
+    return clickTheElementButtonByIndex(browser, element, index);
+  }
+
+  clickTheRemoveCartButtons(browser, element, index = 0) {
+    return clickTheElementButtonByIndex(browser, element, index);
   }
 
   /**

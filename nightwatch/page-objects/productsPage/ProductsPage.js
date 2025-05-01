@@ -1,6 +1,6 @@
 const utility = require('../../helpers/utilities.js');
 
-const { clickTheElementButton, getElementFromList, clickTheElementButtonByIndex } = utility;
+const { getElementText, getElementFromList, clickTheElementButtonByIndex } = utility;
 
 class ProductsPage {
   constructor() {
@@ -41,18 +41,22 @@ class ProductsPage {
    * @description Clicks any button on the product page
    * @param {Object} browser - inserts the Nightwatch Browser Object
    * @param {String} element - locator used to identify the element
+   * @param {Number} index - position of element in list
    * @returns 
    */
-  clickTheProductButton(browser, element) {
-    return clickTheElementButton(browser, element);
-  }
-
-  clickTheATCButtons(browser, element, index = 0) {
+  clickTheProductButton(browser, element, index = 0) {
     return clickTheElementButtonByIndex(browser, element, index);
   }
 
-  clickTheRemoveCartButtons(browser, element, index = 0) {
-    return clickTheElementButtonByIndex(browser, element, index);
+  /**
+   * @description Get the text of any element on the products page
+   * @param {Object} browser - inserts the Nightwatch Browser Object
+   * @param {String} element - locator used to identify the element
+   * @param {Number} index - position of element in list
+   * @returns element text
+   */
+  getProductText(browser, element, index = 0) {
+    return getElementText(browser, element, index);
   }
 
   /**

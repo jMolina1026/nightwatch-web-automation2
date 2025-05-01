@@ -75,11 +75,11 @@ class LoginPage {
    * @param {String} element - locator used to identify the element
    * @param {Number} index - position of element in a list
    */
-  getLoginMessageText(browser, element = 'wrong element found', index = 0) {
-    return getElementText(browser, element, index).then((text) => {
-      return text;
-    })
-  }
+  // getLoginMessageText(browser, element = 'wrong element found', index = 0) {
+  //   return getElementText(browser, element, index).then((text) => {
+  //     return text;
+  //   })
+  // }
 
 }
 

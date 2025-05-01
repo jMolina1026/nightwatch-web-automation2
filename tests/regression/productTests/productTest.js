@@ -4,7 +4,7 @@ const HeaderPage = require('../../../nightwatch/page-objects/headerPage/headerPa
 const utility = require('../../../nightwatch/helpers/utilities.js');
 const productData = require('../../../nightwatch/helpers/data/products.constants.js');
 
-const { navigateToApp, waitForElementAppearance, clickTheElementButtonByIndex } = utility;
+const { navigateToApp, waitForElementAppearance } = utility;
 const { names, prices, filterOptions  } = productData;
 
 const loginPage = new LoginPage();
@@ -29,7 +29,7 @@ describe('Given the user logs in and sees the Product Page,', () => {
 
     const atcElements = await browser.element.findAll(productsPage.productAddToCart);
     for (let i = 0; i < atcElements.length; i++) {
-      await productsPage.clickTheATCButtons(browser, productsPage.productAddToCart, 0);
+      await productsPage.clickTheProductButton(browser, productsPage.productAddToCart, 0);
       await browser.expect.element(productsPage.productShoppingCartBadge).to.be.visible.and.be.present;
       await browser.expect.element(productsPage.productShoppingCartBadge).to.have.text.that.equal(`${i + 1}`);
       await browser.pause(500);
@@ -39,13 +39,13 @@ describe('Given the user logs in and sees the Product Page,', () => {
     for (let j = removeElements.length; j > 0; j--) {
       await browser.expect.element(productsPage.productShoppingCartBadge).to.be.visible.and.be.present;
       await browser.expect.element(productsPage.productShoppingCartBadge).to.have.text.that.equal(`${j}`);
-      await productsPage.clickTheRemoveCartButtons(browser, productsPage.productRemoveFromCart, 0);
+      await productsPage.clickTheProductButton(browser, productsPage.productRemoveFromCart, 0);
       await browser.pause(500);
     }
     await browser.expect.element(productsPage.productShoppingCartBadge).to.not.be.present;
   });
 
-  it.skip('Verify the Product Sort Options', async () => {
+  it('Verify the Product Sort Options', async () => {
     await waitForElementAppearance(browser, headerPage.headerSecondaryFilter);
 
     let i = 0;

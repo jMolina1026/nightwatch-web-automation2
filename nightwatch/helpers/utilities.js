@@ -123,10 +123,7 @@ function getElementText(browser, element, index = 0) {
     .waitForElementVisible(element)
     .element.findAll(element)
     .nth(index)
-    .getText()
-    .then((text) => {
-      return text
-    })
+    .getText();
 }
 
 /**

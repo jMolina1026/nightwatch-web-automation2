@@ -1,6 +1,6 @@
 const utility = require('../../helpers/utilities.js');
 
-const { clickTheElementButton, getElementFromList, clickTheElementButtonByIndex, getElementText } = utility;
+const { getElementFromList, clickTheElementButtonByIndex, getElementText } = utility;
 
 class ProductDetailsPage {
   constructor() {
@@ -21,6 +21,7 @@ class ProductDetailsPage {
     this.detailsItemDesc = 'div.inventory_details_desc';
     this.detailsItemPrice = 'div.inventory_details_price';
     this.detailsATCBtn = 'button.btn_primary';
+    this.detailsRemoveBtn = 'button#remove';
     this.detailsItemImage = 'img.inventory_details_img';
     this.detailsBackToProductsBtn = 'button.inventory_details_back_button';
   }
@@ -42,8 +43,8 @@ class ProductDetailsPage {
    * @param {String} element - locator used to identify the element
    * @returns 
    */
-  clickTheProductButton(browser, element) {
-    return clickTheElementButton(browser, element);
+  clickTheProductDetailsButton(browser, element, index = 0) {
+    return clickTheElementButtonByIndex(browser, element, index);
   }
 
   /**

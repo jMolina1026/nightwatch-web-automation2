@@ -1,5 +1,7 @@
 const utility = require('../../helpers/utilities.js');
+const commonSelectors = require('../../helpers/commonSelectors.js');
 
+const { commonHeaderElements, commonProductsElements } = commonSelectors;
 const { getElementText, getElementFromList, clickTheElementButtonByIndex } = utility;
 
 class ProductsPage {

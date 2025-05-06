@@ -40,6 +40,6 @@ describe('Given the user logs in and sees the Product Details Page,', () => {
     await browser.expect.element(productsDetailsPage.detailsItemImage).to.be.present.and.be.visible;
     await browser.expect.element(productsDetailsPage.detailsBackToProductsBtn).to.be.present.and.be.visible;
 
-    await browser.pause(2000)
+    await browser.pause(500)
   });
 });

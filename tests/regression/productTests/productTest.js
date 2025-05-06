@@ -4,7 +4,7 @@ const HeaderPage = require('../../../nightwatch/page-objects/headerPage/headerPa
 const utility = require('../../../nightwatch/helpers/utilities.js');
 const productData = require('../../../nightwatch/helpers/data/products.constants.js');
 
-const { navigateToApp, waitForElementAppearance, clickTheElementButtonByIndex } = utility;
+const { navigateToApp, waitForElementAppearance } = utility;
 const { names, prices, filterOptions  } = productData;
 
 const loginPage = new LoginPage();
@@ -24,14 +24,25 @@ describe('Given the user logs in and sees the Product Page,', () => {
     browser.quit();
   });
 
-  it('Click on the Add-To-Cart for each product', async () => {
+  it('Click on the Add-To-Cart for each product, then Remove from cart', async () => {
     await waitForElementAppearance(browser, productsPage.productAddToCart);
 
     const atcElements = await browser.element.findAll(productsPage.productAddToCart);
     for (let i = 0; i < atcElements.length; i++) {
-      await clickTheElementButtonByIndex(browser, productsPage.productAddToCart, 0);
+      await productsPage.clickTheProductButton(browser, productsPage.productAddToCart, 0);
+      await browser.expect.element(productsPage.productShoppingCartBadge).to.be.visible.and.be.present;
+      await browser.expect.element(productsPage.productShoppingCartBadge).to.have.text.that.equal(`${i + 1}`);
       await browser.pause(500);
     }
+
+    const removeElements = await browser.element.findAll(productsPage.productRemoveFromCart);
+    for (let j = removeElements.length; j > 0; j--) {
+      await browser.expect.element(productsPage.productShoppingCartBadge).to.be.visible.and.be.present;
+      await browser.expect.element(productsPage.productShoppingCartBadge).to.have.text.that.equal(`${j}`);
+      await productsPage.clickTheProductButton(browser, productsPage.productRemoveFromCart, 0);
+      await browser.pause(500);
+    }
+    await browser.expect.element(productsPage.productShoppingCartBadge).to.not.be.present;
   });
 
   it('Verify the Product Sort Options', async () => {

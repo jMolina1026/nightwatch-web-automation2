@@ -1,7 +1,7 @@
 const utility = require('../../helpers/utilities.js');
 const commonSelectors = require('../../helpers/commonSelectors.js');
 
-const { commonHeaderElements, commonProductsElements } = commonSelectors;
+const { commonHeaderElements } = commonSelectors;
 const { getElementText, getElementFromList, clickTheElementButtonByIndex } = utility;
 
 class ProductsPage {
@@ -15,9 +15,9 @@ class ProductsPage {
     this.productAddToCart = 'button.btn_primary';
     this.productRemoveFromCart = 'button.btn_secondary';
     this.productImage = 'img.inventory_item_img';
-    this.productShoppingCartBadge = 'span.shopping_cart_badge';
+    this.productShoppingCartBadge = commonHeaderElements.shoppingCartBadge;
 
-    this.productFilters = 'select.product_sort_container > option';
+    this.productFilters = commonHeaderElements.sortContainer + ' > option';
     this.productFilterActive = 'span.active_option';
   }
 

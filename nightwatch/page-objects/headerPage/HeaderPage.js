@@ -1,5 +1,5 @@
 const commonSelectors = require('../../helpers/commonSelectors.js');
-const { commonHeaderElements, commonProductsElements } = commonSelectors;
+const { commonHeaderElements } = commonSelectors;
 
 class HeaderPage {
   constructor () {
@@ -8,7 +8,7 @@ class HeaderPage {
      */
     this.burgerMenuButton = commonHeaderElements.burgerMenuButton;
     this.shoppingCartButton = commonHeaderElements.shoppingCartButton;
-    this.shoppingCartBadge = commonProductsElements.shoppingCartBadge;
+    this.shoppingCartBadge = commonHeaderElements.shoppingCartBadge;
     this.headerLogo = 'div.app_logo';
     this.headerSecondTitle = commonHeaderElements.secondaryTitle;
     this.headerSecondaryFilter = commonHeaderElements.sortContainer;

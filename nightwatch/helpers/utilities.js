@@ -173,9 +173,6 @@ function getElementFromList(browser, element = '', index = 0) {
 // To make any method or variable private, just remove it from the list of exported items
 module.exports = {
   loginValidations,
-  // items,
-  // itemDetails,
-  // burgerMenuText,
   getBaseUrl,
   navigateToApp,
   randomNumber,

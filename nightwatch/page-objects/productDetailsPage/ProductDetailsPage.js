@@ -46,19 +46,6 @@ class ProductDetailsPage {
   clickTheProductDetailsButton(browser, element, index = 0) {
     return clickTheElementButtonByIndex(browser, element, index);
   }
-
-  /**
-   * @description Obtains a webElement from a list of webElements 
-   * for the Name of the products
-   * @param {Object} browser - inserts the Nightwatch Browser Object
-   * @param {String} element - locator used to identify the element
-   * @param {Number} index - position of element in list
-   * @returns a single webElement from product names
-   */
-  getName(browser, element = '', index = 0) {
-    return getElementFromList(browser, element, index);
-  }
-
 }
 
 module.exports = ProductDetailsPage;

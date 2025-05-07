@@ -1,6 +1,8 @@
 const utility = require('../../helpers/utilities.js');
+const commonSelectors = require('../../helpers/commonSelectors.js')
 
-const { clickTheElementButton, getElementText } = utility;
+const { clickTheElementButton } = utility;
+const { commonLoginPageElements } = commonSelectors;
 
 class LoginPage {
   constructor () {
@@ -15,7 +17,7 @@ class LoginPage {
     this.loginBtn = 'input#login-button';
     this.headerLogo = 'div.app_logo';
     this.errorMessageBox = 'h3[data-test="error"]';
-    this.loginLogo = 'div.login_logo'; //commonLoginPageElements.loginLogo
+    this.loginLogo = commonLoginPageElements.loginLogo;
     this.loginCredential = 'div#login_credentials';
     this.loginPassword = 'div.login_password';
   }

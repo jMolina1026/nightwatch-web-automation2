@@ -43,10 +43,18 @@ const filterOptions = {
   hilo: 'Price (high to low)'
 }
 
+const burgerMenuOptions = {
+  allItems: 'All Items',
+  about: 'About',
+  logout: 'Logout',
+  resetApp: 'Reset App State'
+}
+
 module.exports = {
   names,
   descriptions,
   prices,
   addToCartBtns,
-  filterOptions
+  filterOptions,
+  burgerMenuOptions
 }

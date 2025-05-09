@@ -32,6 +32,7 @@ describe('Given the user logs in, adds items and views the Shopping Cart,', () =
 
     await productsPage.clickTheProductButton(browser, productsPage.productAddToCart, 0);
     await headerPage.clickTheHeaderButton(browser, headerPage.shoppingCartButton);
+    await browser.expect.element(headerPage.headerSecondTitle).to.have.text.equal('Your Cart')
 
     const shoppingCartTextsArray = [
       shoppingCartTexts.qty,

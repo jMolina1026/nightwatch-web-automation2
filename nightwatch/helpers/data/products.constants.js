@@ -59,6 +59,14 @@ const shoppingCartTexts = {
   itemRemove: 'Remove'
 }
 
+const chkoutInfoPlaceHolders = {
+  firstName: 'First Name',
+  lastName: 'Last Name',
+  zipCode: 'Zip/Postal Code',
+  cancel: 'Cancel',
+  continue: 'Continue'
+}
+
 module.exports = {
   names,
   descriptions,
@@ -66,5 +74,6 @@ module.exports = {
   addToCartBtns,
   filterOptions,
   burgerMenuOptions,
-  shoppingCartTexts
+  shoppingCartTexts,
+  chkoutInfoPlaceHolders
 }

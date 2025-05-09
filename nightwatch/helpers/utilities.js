@@ -170,9 +170,26 @@ function getElementFromList(browser, element = '', index = 0) {
     .nth(index);
 }
 
+/**
+ * @description get the length of a list of elements
+ * @param {Object} browser - inserts the Nightwatch Browser Object
+ * @param {String} element - locator used to identify the element
+ * @returns element list size
+ */
 async function getLength(browser, element) {
   const elements = await browser.element.findAll(element);
   return elements.length;
+}
+
+/**
+ * @description get the value of an attribute for an element
+ * @param {Object} browser - inserts the Nightwatch Browser Object
+ * @param {String} element - locator used to identify the element
+ * @param {String} attribute - element attribute
+ * @returns element attribute value
+ */
+function getAttributeValue(browser, element, attribute) {
+  return browser.getAttribute(element, attribute);
 }
 
 // To make any method or variable private, just remove it from the list of exported items
@@ -190,5 +207,6 @@ module.exports = {
   switchTabs,
   closeCurrentTab,
   getElementFromList,
-  getLength
+  getLength,
+  getAttributeValue
 }

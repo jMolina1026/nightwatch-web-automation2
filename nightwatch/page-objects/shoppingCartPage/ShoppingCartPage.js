@@ -25,7 +25,7 @@ class ShoppingCartPage {
    * @param {Number} index - position of element in list
    * @returns element text
    */
-  getCheckoutItemsText(browser, element, index = 0) {
+  getShoppingCartText(browser, element, index = 0) {
     return getElementText(browser, element, index);
   }
 
@@ -35,7 +35,7 @@ class ShoppingCartPage {
    * @param {String} element - locator used to identify the element
    * @returns 
    */
-  clickTheCheckoutButton(browser, element, index = 0) {
+  clickTheShoppingCartButton(browser, element, index = 0) {
     return clickTheElementButtonByIndex(browser, element, index);
   }
 }

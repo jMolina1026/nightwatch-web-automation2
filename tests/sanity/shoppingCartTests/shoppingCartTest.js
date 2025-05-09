@@ -3,8 +3,10 @@ const HeaderPage = require('../../../nightwatch/page-objects/headerPage/headerPa
 const ProductsPage = require('../../../nightwatch/page-objects/productsPage/ProductsPage.js');
 const ShoppingCartPage = require('../../../nightwatch/page-objects/shoppingCartPage/ShoppingCartPage.js');
 const utility = require('../../../nightwatch/helpers/utilities.js');
+const constants = require('../../../nightwatch/helpers/data/products.constants.js');
 
 const { navigateToApp } = utility;
+const { shoppingCartTexts } = constants
 
 const loginPage = new LoginPage();
 const headerPage = new HeaderPage();
@@ -31,15 +33,23 @@ describe('Given the user logs in, adds items and views the Shopping Cart,', () =
     await productsPage.clickTheProductButton(browser, productsPage.productAddToCart, 0);
     await headerPage.clickTheHeaderButton(browser, headerPage.shoppingCartButton);
 
-    const headerSelectorValues = Object.values(shoppingCartPage)
-    for (let i = 0; i < headerSelectorValues.length; i++) {
-      await browser.expect.element(headerSelectorValues[i]).to.be.present.and.be.visible;
+    const shoppingCartTextsArray = [
+      shoppingCartTexts.qty,
+      shoppingCartTexts.desc,
+      productNameText,
+      productDescText,
+      productPriceText,
+      shoppingCartTexts.itemQty,
+      shoppingCartTexts.itemRemove,
+      shoppingCartTexts.contShopping,
+      shoppingCartTexts.checkout,
+    ];
+
+    const shoppingCartElements = Object.values(shoppingCartPage)
+    for (let i = 0; i < shoppingCartElements.length; i++) {
+      await browser.expect.element(shoppingCartElements[i]).to.be.present.and.be.visible;
+      await browser.expect.element(shoppingCartElements[i]).to.have.text.equal(shoppingCartTextsArray[i]);
     }
-
-    await browser.expect.element(shoppingCartPage.detailsItemName).to.have.text.equal(productNameText);
-    await browser.expect.element(shoppingCartPage.detailsItemDesc).to.have.text.equal(productDescText);
-    await browser.expect.element(shoppingCartPage.detailsItemPrice).to.have.text.equal(productPriceText);
-
-    await browser.pause(2000);
+    await browser.pause(500);
   });
 });

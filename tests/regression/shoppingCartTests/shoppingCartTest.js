@@ -14,23 +14,23 @@ const shoppingCartPage = new ShoppingCartPage();
 describe('Given the user logs in, adds items and views the Shopping Cart,', () => {
   this.tags = ['shoppingCart', 'shoppingCartRegression', 'Regression'];
   
-  beforeEach(() => {
-    navigateToApp(browser);
+  beforeEach(async () => {
+    await navigateToApp(browser);
     loginPage.login(browser);
-  });
 
-  afterEach(() => {
-    browser.quit();
-  });
-
-  it('User is able to remove items from shopping cart', async () => {
     const countOfItemsAdded = 3
     for (let i = 0; i < countOfItemsAdded; i++) {
       await productsPage.clickTheProductButton(browser, productsPage.productAddToCart, 0);
     }
-
     await headerPage.clickTheHeaderButton(browser, headerPage.shoppingCartButton);
-    await browser.expect.element(headerPage.headerSecondTitle).to.have.text.equal('Your Cart')
+    await browser.expect.element(headerPage.headerSecondTitle).to.have.text.equal('Your Cart');
+  });
+
+  afterEach(async () => {
+    await browser.quit();
+  });
+
+  it('User is able to remove items from shopping cart', async () => {
     const shoppingCartBadgeText = await shoppingCartPage.getShoppingCartText(browser, headerPage.shoppingCartBadge);
     const shoppingCartItemsAdded = await getLength(browser, shoppingCartPage.detailsItemName);
     browser.expect(parseInt(shoppingCartBadgeText)).to.equal(shoppingCartItemsAdded);
@@ -45,13 +45,6 @@ describe('Given the user logs in, adds items and views the Shopping Cart,', () =
   });
 
   it('User is able to continue shopping', async () => {
-    const countOfItemsAdded = 3
-    for (let i = 0; i < countOfItemsAdded; i++) {
-      await productsPage.clickTheProductButton(browser, productsPage.productAddToCart, 0);
-    }
-
-    await headerPage.clickTheHeaderButton(browser, headerPage.shoppingCartButton);
-    await browser.expect.element(headerPage.headerSecondTitle).to.have.text.equal('Your Cart')
     const shoppingCartBadgeText = await shoppingCartPage.getShoppingCartText(browser, headerPage.shoppingCartBadge);
     const shoppingCartItemsAdded = await getLength(browser, shoppingCartPage.detailsItemName);
     browser.expect(parseInt(shoppingCartBadgeText)).to.equal(shoppingCartItemsAdded);
@@ -62,13 +55,6 @@ describe('Given the user logs in, adds items and views the Shopping Cart,', () =
   });
 
   it('User is able to checkout', async () => {
-    const countOfItemsAdded = 3
-    for (let i = 0; i < countOfItemsAdded; i++) {
-      await productsPage.clickTheProductButton(browser, productsPage.productAddToCart, 0);
-    }
-
-    await headerPage.clickTheHeaderButton(browser, headerPage.shoppingCartButton);
-    await browser.expect.element(headerPage.headerSecondTitle).to.have.text.equal('Your Cart')
     const shoppingCartBadgeText = await shoppingCartPage.getShoppingCartText(browser, headerPage.shoppingCartBadge);
     const shoppingCartItemsAdded = await getLength(browser, shoppingCartPage.detailsItemName);
     browser.expect(parseInt(shoppingCartBadgeText)).to.equal(shoppingCartItemsAdded);

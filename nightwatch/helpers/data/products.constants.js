@@ -50,11 +50,21 @@ const burgerMenuOptions = {
   resetApp: 'Reset App State'
 }
 
+const shoppingCartTexts = {
+  qty: 'QTY',
+  desc: 'Description',
+  contShopping: 'Continue Shopping',
+  checkout: 'Checkout',
+  itemQty: '1',
+  itemRemove: 'Remove'
+}
+
 module.exports = {
   names,
   descriptions,
   prices,
   addToCartBtns,
   filterOptions,
-  burgerMenuOptions
+  burgerMenuOptions,
+  shoppingCartTexts
 }

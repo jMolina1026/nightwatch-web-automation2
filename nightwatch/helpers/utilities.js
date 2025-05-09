@@ -170,6 +170,11 @@ function getElementFromList(browser, element = '', index = 0) {
     .nth(index);
 }
 
+async function getLength(browser, element) {
+  const elements = await browser.element.findAll(element);
+  return elements.length;
+}
+
 // To make any method or variable private, just remove it from the list of exported items
 module.exports = {
   loginValidations,
@@ -184,5 +189,6 @@ module.exports = {
   getAllTabHandles,
   switchTabs,
   closeCurrentTab,
-  getElementFromList
+  getElementFromList,
+  getLength
 }

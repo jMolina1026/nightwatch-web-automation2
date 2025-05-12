@@ -67,6 +67,12 @@ const chkoutInfoPlaceHolders = {
   continue: 'Continue'
 }
 
+const inputFields = {
+  firstName: 'John',
+  lastName: 'Smith',
+  zipCode: '91606'
+}
+
 module.exports = {
   names,
   descriptions,
@@ -75,5 +81,6 @@ module.exports = {
   filterOptions,
   burgerMenuOptions,
   shoppingCartTexts,
-  chkoutInfoPlaceHolders
+  chkoutInfoPlaceHolders,
+  inputFields
 }

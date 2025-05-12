@@ -1,6 +1,6 @@
 const utility = require('../../helpers/utilities.js');
 
-const { clickTheElementButtonByIndex, getElementText, getAttributeValue } = utility;
+const { clickTheElementButtonByIndex, getElementText, getAttributeValue, typeText } = utility;
 
 class CheckoutInfoPage {
   constructor() {
@@ -12,6 +12,21 @@ class CheckoutInfoPage {
     this.postalCode = 'input#postal-code';
     this.cancelBtn = 'button#cancel';
     this.continueBtn = 'input#continue';
+    this.errorMessageContainer = 'div.error-message-container > h3';
+  }
+
+  /**
+   * @description Get an element from a list
+   * @param {*} key 
+   * @returns a single webElement from and object
+   */
+  getFieldElement(key) {
+    const inputFieldElements = {
+      firstName: this.firstName,
+      lastName: this.lastName,
+      zipCode: this.postalCode
+    };
+    return inputFieldElements[key];
   }
 
   /**
@@ -44,6 +59,17 @@ class CheckoutInfoPage {
    */
   clickCheckoutInfoButton(browser, element, index = 0) {
     return clickTheElementButtonByIndex(browser, element, index);
+  }
+
+  /**
+   * 
+   * @param {Object} browser - inserts the Nightwatch Browser Object
+   * @param {String} element - locator used to identify the element
+   * @param {String} text - string of text to be added
+   * @returns 
+   */
+  typeTextIntoInfoField(browser, element, text = "test123") {
+    return typeText(browser, element, text);
   }
 }
 

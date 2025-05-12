@@ -192,6 +192,10 @@ function getAttributeValue(browser, element, attribute) {
   return browser.getAttribute(element, attribute);
 }
 
+function typeText(browser, element, text) {
+  return browser.element.find(element).sendKeys(text);
+}
+
 // To make any method or variable private, just remove it from the list of exported items
 module.exports = {
   loginValidations,
@@ -208,5 +212,6 @@ module.exports = {
   closeCurrentTab,
   getElementFromList,
   getLength,
-  getAttributeValue
+  getAttributeValue,
+  typeText
 }

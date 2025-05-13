@@ -98,6 +98,5 @@ module.exports = {
   shoppingCartTexts,
   chkoutInfoPlaceHolders,
   inputFields,
-  finalOverviewTexts,
-  priceBreakDown
+  finalOverviewTexts
 }

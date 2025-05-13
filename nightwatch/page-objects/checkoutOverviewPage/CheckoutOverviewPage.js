@@ -72,11 +72,9 @@ class CheckoutOverviewPage {
    * @param {String} element - locator used to identify the element
    * @returns 
    */
-  clickTheFinishButton(browser, element, index = 0) {
+  clickTheOverviewButton(browser, element, index = 0) {
     return clickTheElementButtonByIndex(browser, element, index);
   }
-
-
 }
 
 module.exports = CheckoutOverviewPage;

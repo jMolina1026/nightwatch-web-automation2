@@ -7,7 +7,7 @@ const CheckoutOverviewPage = require('../../../nightwatch/page-objects/checkoutO
 const constants = require('../../../nightwatch/helpers/data/products.constants.js');
 
 const utility = require('../../../nightwatch/helpers/utilities.js');
-const { inputFields, finalOverviewTexts } = constants
+const { inputFields, finalOverviewTexts } = constants;
 
 const { navigateToApp, getLength, getElementFromList } = utility;
 
@@ -76,7 +76,7 @@ describe('Given the user has added items to the Shopping Cart and proceeded to f
     const total = (subTotal + tax);
 
     await browser.expect.element(checkoutOverviewPage.subtotalInfo).to.have.text.equal(finalOverviewTexts.subTotal + subTotal.toFixed(2));
-    await browser.expect.element(checkoutOverviewPage.taxInfo).to.have.text.equal(finalOverviewTexts.tax + tax.toFixed(2))
-    await browser.expect.element(checkoutOverviewPage.totalInfo).to.have.text.equal(finalOverviewTexts.total + total.toFixed(2))
+    await browser.expect.element(checkoutOverviewPage.taxInfo).to.have.text.equal(finalOverviewTexts.tax + tax.toFixed(2));
+    await browser.expect.element(checkoutOverviewPage.totalInfo).to.have.text.equal(finalOverviewTexts.total + total.toFixed(2));
   })
 });

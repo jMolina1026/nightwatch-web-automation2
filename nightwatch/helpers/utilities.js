@@ -192,7 +192,15 @@ function getAttributeValue(browser, element, attribute) {
   return browser.getAttribute(element, attribute);
 }
 
+/**
+ * @description function to type text into an input field
+ * @param {Object} browser - inserts the Nightwatch Browser Object
+ * @param {String} element - locator used to identify the element
+ * @param {String} text - text to type into a field
+ * @returns 
+ */
 function typeText(browser, element, text) {
+  waitForElementAppearance(browser, element);
   return browser.element.find(element).sendKeys(text);
 }
 

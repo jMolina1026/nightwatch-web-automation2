@@ -73,6 +73,21 @@ const inputFields = {
   zipCode: '91606'
 }
 
+const finalOverviewTexts = {
+  qty: 'QTY',
+  desc: 'Description',
+  payInfoLabel: 'Payment Information:',
+  paymentInfo: 'SauceCard #31337',
+  shippingInfoLabel: 'Shipping Information:',
+  shipper: 'Free Pony Express Delivery!',
+  priceTotalLabel: 'Price Total',
+  subTotal: 'Item total: $',
+  tax: 'Tax: $',
+  total: 'Total: $',
+  cancel: 'Cancel',
+  finish: 'Finish'
+}
+
 module.exports = {
   names,
   descriptions,
@@ -82,5 +97,6 @@ module.exports = {
   burgerMenuOptions,
   shoppingCartTexts,
   chkoutInfoPlaceHolders,
-  inputFields
+  inputFields,
+  finalOverviewTexts
 }

@@ -2,7 +2,7 @@ const utility = require('../../helpers/utilities.js');
 const constants = require('../../helpers/data/products.constants.js');
 
 const { names, descriptions, prices } = constants;
-const { clickTheElementButtonByIndex, getElementText, getAttributeValue, typeText } = utility;
+const { clickTheElementButtonByIndex, getElementText } = utility;
 
 class CheckoutOverviewPage {
   constructor() {
